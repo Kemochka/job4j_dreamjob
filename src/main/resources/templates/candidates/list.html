@@ -22,31 +22,13 @@
                     <a class="nav-item nav-link" th:href="@{/vacancies}">Вакансии</a>
                     <a class="nav-item nav-link active" th:href="@{/candidates}">Кандидаты</a>
                     <a class="nav-item nav-link" th:href="@{/vacancies/create}">Создать вакансию</a>
+                    <a class="nav-item nav-link" th:href="@{/candidates/create}">Создать резюме</a>
                 </div>
             </div>
         </div>
     </nav>
     <div class="container">
-        <div class="row">
-            <table class="table">
-                <thead>
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Имя</th>
-                    <th scope="col">Описание</th>
-                    <th scope="col">Дата создания</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr th:each="candidate: ${candidates}">
-                    <td th:text="${candidate.id}" />
-                    <td th:text="${candidate.name}" />
-                    <td th:text="${candidate.description}"/>
-                    <td th:text="${candidate.creationDate}"/>
-                </tr>
-                </tbody>
-            </table>
-        </div>
+        <div class="row"></div>
     </div>
 </div>
 </body>
