@@ -5,10 +5,10 @@ import java.util.Objects;
 
 public class Vacancy {
     private int id;
-
     private String title;
     private String description;
     private LocalDateTime creationDate = LocalDateTime.now();
+
     public Vacancy(int id, String title, String description, LocalDateTime creationDate) {
         this.id = id;
         this.title = title;
@@ -41,6 +41,10 @@ public class Vacancy {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     @Override
