@@ -1,43 +1,42 @@
 package ru.job4j.dreamjob.service;
 
+import org.springframework.stereotype.Service;
 import ru.job4j.dreamjob.model.Vacancy;
+import ru.job4j.dreamjob.repository.VacancyRepository;
 
 import java.util.Collection;
 import java.util.Optional;
 
+ @Service
 public class SimpleVacancyService implements VacancyService {
-    private static final SimpleVacancyService INSTANCE = new SimpleVacancyService();
+     private final VacancyRepository vacancyRepository;
 
-    private final VacancyService vacancyService = SimpleVacancyService.getInstance();
-
-    private SimpleVacancyService() { }
-
-    public static SimpleVacancyService getInstance() {
-        return INSTANCE;
-    }
+     public SimpleVacancyService(VacancyRepository vacancyRepository) {
+         this.vacancyRepository = vacancyRepository;
+     }
 
     @Override
     public Vacancy save(Vacancy vacancy) {
-        return vacancyService.save(vacancy);
+        return vacancyRepository.save(vacancy);
     }
 
     @Override
     public boolean deleteById(int id) {
-        return vacancyService.deleteById(id);
+        return vacancyRepository.deleteById(id);
     }
 
     @Override
     public boolean update(Vacancy vacancy) {
-        return vacancyService.update(vacancy);
+        return vacancyRepository.update(vacancy);
     }
 
     @Override
     public Optional<Vacancy> findById(int id) {
-        return vacancyService.findById(id);
+        return vacancyRepository.findById(id);
     }
 
     @Override
     public Collection<Vacancy> findAll() {
-        return vacancyService.findAll();
+        return vacancyRepository.findAll();
     }
 }
