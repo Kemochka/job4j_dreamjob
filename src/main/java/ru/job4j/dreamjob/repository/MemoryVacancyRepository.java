@@ -19,13 +19,13 @@ public class MemoryVacancyRepository implements VacancyRepository {
 
     private final Map<Integer, Vacancy> vacancies = new ConcurrentHashMap<>();
 
-    private MemoryVacancyRepository() {
-        save(new Vacancy(0, "Intern Java Developer", "Intern", LocalDateTime.now(), false, 1));
-        save(new Vacancy(0, "Junior Java Developer", "Junior", LocalDateTime.now(), false, 2));
-        save(new Vacancy(0, "Junior+ Java Developer", "Junior+", LocalDateTime.now(), false, 3));
-        save(new Vacancy(0, "Middle Java Developer", "Middle", LocalDateTime.now(), false, 1));
-        save(new Vacancy(0, "Middle+ Java Developer", "Middle+", LocalDateTime.now(), true, 2));
-        save(new Vacancy(0, "Senior Java Developer", "Senior", LocalDateTime.now(), false, 3));
+    public MemoryVacancyRepository() {
+        save(new Vacancy(0, "Intern Java Developer", "Стажер Java разработчик", LocalDateTime.now(), true, 1, 0));
+        save(new Vacancy(0, "Junior Java Developer", "Младший Java разработчик", LocalDateTime.now(), true, 1, 0));
+        save(new Vacancy(0, "Junior+ Java Developer", "Java разработчик", LocalDateTime.now(), true, 2, 0));
+        save(new Vacancy(0, "Middle Java Developer", "Старший Java разработчик", LocalDateTime.now(), true, 2, 0));
+        save(new Vacancy(0, "Middle+ Java Developer", "Ведущий Java разработчик", LocalDateTime.now(), true, 2, 0));
+        save(new Vacancy(0, "Senior Java Developer", "Главный Java разработчик", LocalDateTime.now(), true, 3, 0));
     }
 
     @Override
@@ -49,7 +49,8 @@ public class MemoryVacancyRepository implements VacancyRepository {
                         vacancy.getDescription(),
                         vacancy.getCreationDate(),
                         vacancy.getVisible(),
-                        vacancy.getCityId())) != null;
+                        vacancy.getCityId(),
+                        vacancy.getFileId())) != null;
     }
 
     @Override
